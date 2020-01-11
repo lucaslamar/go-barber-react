@@ -7,11 +7,13 @@ import logo from '~/assets/logo.svg';
 // import { Container } from './styles';
 
 export default function Signin() {
+  function handeSubmit(data) {}
+
   return (
     <>
       <img src={logo} alt="Gobarber" />
 
-      <Form>
+      <Form onSubmit={handeSubmit}>
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Sua senha" />
 
