@@ -21,15 +21,15 @@ export default function Signin() {
   const dispach = useDispatch();
   const loading = useSelector(state => state.auth.loading);
 
-  function handeSubmit({ email, senha }) {
-    dispach(signInRequest(email, senha));
+  function handleSubmit({ email, password }) {
+    dispach(signInRequest(email, password));
   }
 
   return (
     <>
       <img src={logo} alt="Gobarber" />
 
-      <Form schema={schema} onSubmit={handeSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit}>
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Sua senha" />
 
