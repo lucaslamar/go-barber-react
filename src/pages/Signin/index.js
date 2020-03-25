@@ -10,31 +10,30 @@ import logo from '~/assets/logo.svg';
 
 const schema = Yup.object().shape({
   email: Yup.string()
-    .email('Insira um e-mail válido')
-    .required('O e-mail é obrigatório'),
-  password: Yup.string().required('A senha é obrigatória'),
+    .email('Insira um email valido!')
+    .required('O email é obrigatorio'),
+  password: Yup.string().required('A senha é obrigatoria'),
 });
 
-// import { Container } from './styles';
-
-export default function Signin() {
-  const dispach = useDispatch();
+export default function SignIn() {
+  const dispatch = useDispatch();
   const loading = useSelector(state => state.auth.loading);
 
   function handleSubmit({ email, password }) {
-    dispach(signInRequest(email, password));
+    dispatch(signInRequest(email, password));
   }
-
   return (
     <>
-      <img src={logo} alt="Gobarber" />
-
+      <img src={logo} alt="GoBarber" />
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="email" type="email" placeholder="Seu e-mail" />
-        <Input name="password" type="password" placeholder="Sua senha" />
-
-        <button type="submit">{loading ? 'Acessar' : 'carregando'}</button>
-        <Link to="/register">Cria Conta Gratuita</Link>
+        <Input name="email" type="email" placeholder="Seu email" />
+        <Input
+          name="password"
+          type="password"
+          placeholder="Sua senha secreta"
+        />
+        <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
+        <Link to="/register">Criar conta gratuita</Link>
       </Form>
     </>
   );

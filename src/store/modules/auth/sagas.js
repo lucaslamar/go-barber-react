@@ -3,13 +3,11 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 import history from '~/services/history';
 import api from '~/services/api';
-
-import { signInSucess, signFailure } from './actions';
+import { signInSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
-
     const response = yield call(api.post, 'sessions', {
       email,
       password,
@@ -18,15 +16,17 @@ export function* signIn({ payload }) {
     const { token, user } = response.data;
 
     if (!user.provider) {
-      toast.error('Usuário não é um provider');
+      toast.error('Usuario não é prestador');
       return;
     }
 
-    yield put(signInSucess(token, user));
+    api.defaults.headers.Authorization = `Bearer ${token}`;
+
+    yield put(signInSuccess(token, user));
 
     history.push('/dashboard');
   } catch (err) {
-    toast.error('Falha no Login, verifique seus dados');
+    toast.error('Usuario ou senha invalido');
     yield put(signFailure());
   }
 }
@@ -42,13 +42,24 @@ export function* signUp({ payload }) {
     });
     history.push('/');
   } catch (err) {
-    toast.error('Falha no cadastro seus dados');
+    toast.error('Falha no cadastro, verifique seus dados');
 
     yield put(signFailure());
   }
 }
 
+export function setToken({ payload }) {
+  if (!payload) return;
+
+  const { token } = payload.auth;
+
+  if (token) {
+    api.defaults.headers.Authorization = ` Bearer ${token}`;
+  }
+}
+
 export default all([
+  takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
 ]);
