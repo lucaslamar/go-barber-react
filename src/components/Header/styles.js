@@ -51,14 +51,13 @@ export const Profile = styled.div`
     }
 
     a {
-      display: back;
+      display: block;
       margin-top: 2px;
       font-size: 12px;
       color: #999;
     }
   }
   img {
-    width: 32px;
     height: 32px;
     border-radius: 50%;
   }
