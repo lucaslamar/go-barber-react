@@ -1,6 +1,7 @@
 /* eslint-disable prefer-object-spread */
 import { all, takeLatest, call, put } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
+import history from '~/services/history';
 
 import api from '~/services/api';
 
@@ -20,6 +21,8 @@ export function* updateProfile({ payload }) {
     const response = yield call(api.put, 'users', profile);
 
     toast.success('Perfil atualizado com sucesso');
+
+    history.push('/dashboard');
 
     yield put(updateProfileSuccess(response.data));
   } catch (err) {
