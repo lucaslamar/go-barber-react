@@ -1,36 +1,50 @@
 import { createGlobalStyle } from 'styled-components';
-
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
-  *{
-    margin:0;
-    padding:0;
-    outline: 0;
+
+  * {
+    margin: 0;
+    padding: 0;
+    outline: none;
     box-sizing: border-box;
   }
-  *:focus{
-    outline:0;
+
+  *:focus {
+    outline: none;
   }
-  html, body, #root{
-    height:105%;
-    
+
+  body, html, #root {
+    height: 100%;
   }
-  body{
-    -webkit-font-smoothing: antialiased;
+
+  body {
+    -webkit-font-smoothing: antialiased; 
+    min-height: 100vh;
   }
-  body, input, button{
+
+  body, input, button {
     font: 14px 'Roboto', sans-serif;
   }
-  a{
+
+  a {
     text-decoration: none;
   }
-  li{
+
+  ul {
     list-style: none;
   }
-  button{
-     cursor: pointer;
+
+  button {
+    cursor: pointer;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px 0 20px;
   }
 `;
