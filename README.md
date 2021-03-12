@@ -1,32 +1,30 @@
-<h1 align="center">
-<br>
-  <img src="src/assets/logo-roxa.svg" alt="GoBarber" width="90">
-<br>
-<br>
-GoBarber
-</h1>
+<h1 align="center">GitHub Repositories</h1>
 
-<p align="center">An app for barber appointment and scheduling.</p>
+  <a href="https://github.com/Rocketseat/bootcamp-gostack-desafio-05/blob/master/README.md"><img alt="GitHub language count" src="https://img.shields.io/badge/GitHubUsers-desafio05-blue"></a>
 
 
-<hr />
 
-## Features
 
-This app features all the latest tools and practices in web development!
+</h3>
+<p align="center">
+  <b>Github Repositories</b> é uma simples single page que usa api to Github para fazer a listagem de Repostitorios e mostrar os detalhes do mesmo, vale lembrar que o projeto utiliza,styled-components💅</p>
 
-- ⚛ **React** — A library to build user interfaces
-- ♻ **Redux with Redux Saga** — State management with middleware
-- 💅 **CSS** — styled-components
-- 🌸 **Reactotron** - Helps debugging process
-- 💖 **Lint** — ESlint/Prettier/Editor Config
+<img src="src/assets/readme.png">
 
-## Getting started
 
-_Before you run this application you need to make sure the [server](https://github.com/lucaslamar/go-barber-api) is running!_.
 
-1. Clone this repo`
-2. Move to the appropriate directory: `cd go-barber-react`.<br />
-3. Run `yarn` to install dependencies.<br />
-4. Run `yarn start` to see the example app at `http://localhost:3000`.
 
+## Getting Started
+Clone o Repositorio e execute os seguintes comandos:
+```sh
+yarn -> install dependecies
+start -> react-scripts start,
+build -> react-scripts build,
+test -> react-scripts test,
+eject -> react-scripts eject
+
+```
+
+
+### Contributing
+  Se gostou deixe uma estrela
